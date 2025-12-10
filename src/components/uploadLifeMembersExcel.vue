@@ -16,6 +16,10 @@
           <i class="bi bi-question-circle"></i>
           Help Guide
         </button>
+          <button class="btn-back" @click="goToDashboard">
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Dashboard
+                </button>
       </div>
     </div>
 
@@ -392,7 +396,7 @@
 <script>
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -471,6 +475,9 @@ export default {
     }
   },
   methods: {
+       goToDashboard() {
+            window.location.href = "/admin_dashboard";
+     },
     triggerFileInput() {
       this.$refs.fileInput.click();
     },
@@ -568,7 +575,7 @@ export default {
 
         console.log('Formatted Data:', formattedData);
 
-        const response = await axios.post(`http://localhost:3000/Lifemembers/uploadXsl`, {
+        const response = await axios.post(`${API_BASE_URL}/Lifemembers/uploadXsl`, {
           chapters: formattedData
         });
 
@@ -979,8 +986,13 @@ export default {
   opacity: 0.9;
   font-size: 1.1rem;
 }
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
 
-.btn-help {
+
+.btn-help,  .btn-back {
   background: rgba(255, 255, 255, 0.2);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -997,6 +1009,15 @@ export default {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.btn-back {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+}
+
+.btn-back:hover {
+    background: white;
+    transform: translateY(-2px);
+}
 /* Upload Card */
 .upload-card {
   background: white;

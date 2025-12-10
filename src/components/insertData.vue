@@ -20,7 +20,7 @@
 
 <script>
 import axios from 'axios';
-// const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -36,7 +36,7 @@ export default {
   methods: {
     async submitForm() {
       try {
-       await axios.post(`http://localhost:3000/api/form`, this.formData);
+       await axios.post(`${API_BASE_URL}/api/form`, this.formData);
         this.formData.name = '';
         this.formData.year = '';
         this.$emit('formSubmitted');

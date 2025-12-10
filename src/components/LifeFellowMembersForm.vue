@@ -45,7 +45,7 @@
 
 <script>
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -64,7 +64,7 @@ export default {
     async submitLifeFellowData() {
       try {
         await axios.post(
-          'http://localhost:3000/fellowmember/createLifeFellowMember',
+          `${API_BASE_URL}/fellowmember/createLifeFellowMember`,
           this.LifeFellowData
         );
         this.$emit('closeLifeFellowMemberForm');

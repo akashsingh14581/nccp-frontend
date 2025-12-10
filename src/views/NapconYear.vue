@@ -31,6 +31,7 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
       components: {
@@ -40,12 +41,11 @@ export default {
     return {
       year: this.$route.params.year,
       events: [],
-      imageBaseUrl: "http://localhost:3000"
     };
   },
 
   async created() {
-    const res = await axios.get(`${this.imageBaseUrl}/api/events`);
+    const res = await axios.get(`${API_BASE_URL}/api/events`);
     this.events = res.data;
   },
 

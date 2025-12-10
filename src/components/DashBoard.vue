@@ -39,9 +39,7 @@
             <span class="nav-text" v-if="!isSidebarCollapsed">Dashboard</span>
             <div
               class="nav-badge"
-              v-if="
-                !isSidebarCollapsed && (totalSubscribers || totalContactQuery)
-              "
+              v-if="!isSidebarCollapsed && (totalSubscribers || totalContactQuery)"
             >
               <span class="badge">{{
                 (totalSubscribers || 0) + (totalContactQuery || 0)
@@ -51,9 +49,7 @@
         </div>
 
         <div class="nav-section">
-          <div class="nav-label" v-if="!isSidebarCollapsed">
-            Members Management
-          </div>
+          <div class="nav-label" v-if="!isSidebarCollapsed">Members Management</div>
           <button
             v-for="tab in memberTabs"
             :key="tab.id"
@@ -64,16 +60,12 @@
             <div class="nav-icon">
               <i :class="tab.icon"></i>
             </div>
-            <span class="nav-text" v-if="!isSidebarCollapsed">{{
-              tab.name
-            }}</span>
+            <span class="nav-text" v-if="!isSidebarCollapsed">{{ tab.name }}</span>
           </button>
         </div>
 
         <div class="nav-section">
-          <div class="nav-label" v-if="!isSidebarCollapsed">
-            Content & Communications
-          </div>
+          <div class="nav-label" v-if="!isSidebarCollapsed">Content & Communications</div>
           <button
             v-for="tab in contentTabs"
             :key="tab.id"
@@ -84,9 +76,7 @@
             <div class="nav-icon">
               <i :class="tab.icon"></i>
             </div>
-            <span class="nav-text" v-if="!isSidebarCollapsed">{{
-              tab.name
-            }}</span>
+            <span class="nav-text" v-if="!isSidebarCollapsed">{{ tab.name }}</span>
             <div
               class="nav-badge"
               v-if="!isSidebarCollapsed && getNotificationCount(tab.id)"
@@ -96,37 +86,27 @@
           </button>
         </div>
         <div class="nav-section">
-          <div class="nav-label" v-if="!isSidebarCollapsed">
-            Awards Management
-          </div>
+          <div class="nav-label" v-if="!isSidebarCollapsed">Awards Management</div>
           <router-link to="/award" class="nav-item">
             <div class="nav-icon">
               <i class="fa-solid fa-award"></i>
             </div>
-            <span class="nav-text" v-if="!isSidebarCollapsed">
-              Award Management
-            </span>
+            <span class="nav-text" v-if="!isSidebarCollapsed"> Award Management </span>
           </router-link>
         </div>
-         <div class="nav-section">
-          <div class="nav-label" v-if="!isSidebarCollapsed">
-            Event Management
-          </div>
+        <div class="nav-section">
+          <div class="nav-label" v-if="!isSidebarCollapsed">Event Management</div>
           <router-link to="/create-event" class="nav-item">
             <div class="nav-icon">
               <i class="fa-solid fa-calendar"></i>
             </div>
-            <span class="nav-text" v-if="!isSidebarCollapsed">
-              Create Event
-            </span>
+            <span class="nav-text" v-if="!isSidebarCollapsed"> Create Event </span>
           </router-link>
           <router-link to="/created-event" class="nav-item">
             <div class="nav-icon">
               <i class="fa-solid fa-calendar-days"></i>
             </div>
-            <span class="nav-text" v-if="!isSidebarCollapsed">
-              Created Event
-            </span>
+            <span class="nav-text" v-if="!isSidebarCollapsed"> Created Event </span>
           </router-link>
         </div>
       </nav>
@@ -135,7 +115,7 @@
         <div class="user-avatar">
           <img
             src="https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=2198"
-            alt="User"
+            alt="User" loading="lazy"
           />
         </div>
         <div class="user-info" v-if="!isSidebarCollapsed">
@@ -166,36 +146,20 @@
         <div class="header-right">
           <div class="search-bar">
             <i class="bi bi-search"></i>
-            <input
-              type="text"
-              placeholder="Search here..."
-              class="search-input"
-            />
+            <input type="text" placeholder="Search here..." class="search-input" />
           </div>
 
           <div class="header-actions">
             <div class="notifications">
-              <div
-                class="notification-icon"
-                @click="setActiveTab('subscribers')"
-              >
+              <div class="notification-icon" @click="setActiveTab('subscribers')">
                 <i class="bi bi-bell-fill"></i>
-                <span
-                  class="notification-badge"
-                  v-if="totalSubscribers !== null"
-                >
+                <span class="notification-badge" v-if="totalSubscribers !== null">
                   {{ totalSubscribers }}
                 </span>
               </div>
-              <div
-                class="notification-icon"
-                @click="setActiveTab('contact_query')"
-              >
+              <div class="notification-icon" @click="setActiveTab('contact_query')">
                 <i class="bi bi-envelope-arrow-up-fill"></i>
-                <span
-                  class="notification-badge"
-                  v-if="totalContactQuery !== null"
-                >
+                <span class="notification-badge" v-if="totalContactQuery !== null">
                   {{ totalContactQuery }}
                 </span>
               </div>
@@ -304,10 +268,15 @@
               </p>
             </div>
             <div class="section-actions">
+               <button class="btn-primary" @click="showExelFileUploadPage()">
+                <i class="bi bi-plus-circle"></i>
+                Import Excel File
+              </button>
               <button class="btn-primary" @click="showToggleForm()">
                 <i class="bi bi-plus-circle"></i>
                 Add New Member
               </button>
+           
               <button class="btn-secondary" @click="exportToExcel">
                 <i class="bi bi-download"></i>
                 Export
@@ -347,11 +316,7 @@
                   >
                     <i
                       class="bi"
-                      :class="
-                        isEditingMember[index]
-                          ? 'bi-x-circle'
-                          : 'bi-pencil-square'
-                      "
+                      :class="isEditingMember[index] ? 'bi-x-circle' : 'bi-pencil-square'"
                     ></i>
                     {{ isEditingMember[index] ? "Cancel" : "Edit" }}
                   </button>
@@ -368,9 +333,7 @@
 
               <div class="member-info">
                 <h4 class="member-name">{{ member.name }}</h4>
-                <div class="member-id" v-if="member.id">
-                  ID: {{ member.id }}
-                </div>
+                <div class="member-id" v-if="member.id">ID: {{ member.id }}</div>
 
                 <div v-if="!isEditingMember[index]" class="member-details">
                   <div class="detail-item" v-if="member.email">
@@ -446,10 +409,7 @@
                       <i class="bi bi-check-circle"></i>
                       Save Changes
                     </button>
-                    <button
-                      class="btn-secondary"
-                      @click="toggleEditMember(index)"
-                    >
+                    <button class="btn-secondary" @click="toggleEditMember(index)">
                       Cancel
                     </button>
                   </div>
@@ -463,10 +423,7 @@
             <div class="member-deletion-modal-content">
               <div class="member-deletion-modal-header">
                 <h3 class="member-deletion-modal-title">Confirm Deletion</h3>
-                <button
-                  class="member-deletion-modal-close"
-                  @click="closeDeleteModal"
-                >
+                <button class="member-deletion-modal-close" @click="closeDeleteModal">
                   <i class="bi bi-x"></i>
                 </button>
               </div>
@@ -708,10 +665,7 @@
         </div>
 
         <!-- Contact Query Section -->
-        <div
-          v-show="activetab === 'contact_query'"
-          class="contact-query-section"
-        >
+        <div v-show="activetab === 'contact_query'" class="contact-query-section">
           <div class="section-header">
             <div class="section-title">
               <h2>Contact Queries</h2>
@@ -744,8 +698,7 @@
                 <div class="detail-row">
                   <span class="detail-label">Name:</span>
                   <span class="detail-value"
-                    >{{ contactQuery.firstName }}
-                    {{ contactQuery.lastName }}</span
+                    >{{ contactQuery.firstName }} {{ contactQuery.lastName }}</span
                   >
                 </div>
                 <div class="detail-row">
@@ -754,9 +707,7 @@
                 </div>
                 <div class="detail-row">
                   <span class="detail-label">Phone:</span>
-                  <span class="detail-value">{{
-                    contactQuery.phoneNumber
-                  }}</span>
+                  <span class="detail-value">{{ contactQuery.phoneNumber }}</span>
                 </div>
               </div>
             </div>
@@ -783,12 +734,7 @@
             <h4>Upload New Image</h4>
             <form @submit.prevent="uploadPhoto" class="upload-form">
               <div class="file-upload">
-                <input
-                  type="file"
-                  @change="onFileChange"
-                  required
-                  class="file-input"
-                />
+                <input type="file" @change="onFileChange" required class="file-input" />
                 <div class="upload-area">
                   <i class="bi bi-cloud-arrow-up"></i>
                   <p>Click to upload or drag and drop</p>
@@ -820,18 +766,9 @@
                   Event Year
                   <span class="required">*</span>
                 </label>
-                <select
-                  id="imageYear"
-                  v-model="imageYear"
-                  class="form-select"
-                  required
-                >
+                <select id="imageYear" v-model="imageYear" class="form-select" required>
                   <option value="">Select Year</option>
-                  <option
-                    v-for="year in availableYears"
-                    :key="year"
-                    :value="year"
-                  >
+                  <option v-for="year in availableYears" :key="year" :value="year">
                     {{ year }}
                   </option>
                 </select>
@@ -851,9 +788,7 @@
                   rows="3"
                   maxlength="200"
                 ></textarea>
-                <div class="char-counter">
-                  {{ imageDescription.length }}/200
-                </div>
+                <div class="char-counter">{{ imageDescription.length }}/200</div>
               </div>
 
               <button
@@ -880,15 +815,13 @@
                   alt="Gallery image"
                   class="gallery-image"
                   @click="openModal(index)"
+                  loading="lazy"
                 />
                 <div class="gallery-overlay">
                   <button class="overlay-btn view" @click="openModal(index)">
                     <i class="bi bi-eye"></i>
                   </button>
-                  <button
-                    class="overlay-btn delete"
-                    @click.stop="deletePhoto(item._id)"
-                  >
+                  <button class="overlay-btn delete" @click.stop="deletePhoto(item._id)">
                     <i class="bi bi-trash"></i>
                   </button>
                   <button
@@ -957,6 +890,7 @@
                     :src="imagePath + editingImage.imageUrl"
                     alt="Preview"
                     class="preview-image"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -1012,11 +946,7 @@
                     required
                   >
                     <option value="">Select Year</option>
-                    <option
-                      v-for="year in availableYears"
-                      :key="year"
-                      :value="year"
-                    >
+                    <option v-for="year in availableYears" :key="year" :value="year">
                       {{ year }}
                     </option>
                   </select>
@@ -1104,11 +1034,10 @@
               </button>
               <div class="modal-image-container">
                 <img
-                  :src="
-                    imagePath + fetchedImagesData[currentImageIndex].imageUrl
-                  "
+                  :src="imagePath + fetchedImagesData[currentImageIndex].imageUrl"
                   class="modal-image"
                   alt="Gallery image"
+                  loading="lazy"
                 />
                 <button class="nav-btn prev" @click="prevImage">
                   <i class="bi bi-chevron-left"></i>
@@ -1158,6 +1087,7 @@
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 import text_editor from "../components/text_editor";
 import HonoraryMembersForm from "../components/HonoraryMembersForm.vue";
 import LifeMembersForm from "../components/LifeMembersForm.vue";
@@ -1252,7 +1182,7 @@ export default {
       HidePresidentAndSecretaryMemberForm: false,
       HideLifeFellowMembersForm: false,
       HideOrdinaryMemberForm: false,
-      imagePath: "http://localhost:3000",
+      imagePath: `${API_BASE_URL}`,
       photos: [],
       selectedFile: null,
       fetchedImagesData: [],
@@ -1384,9 +1314,7 @@ export default {
       if (this.searchQuery) {
         return this.lifeFellowMembers.filter(
           (member) =>
-            member.name
-              .toLowerCase()
-              .includes(this.searchQuery.toLowerCase()) ||
+            member.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
             member.id.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
       }
@@ -1398,9 +1326,7 @@ export default {
       if (this.searchQuery) {
         return this.ordinaryMembers.filter(
           (member) =>
-            member.name
-              .toLowerCase()
-              .includes(this.searchQuery.toLowerCase()) ||
+            member.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
             member.id.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
       }
@@ -1411,9 +1337,7 @@ export default {
       if (this.searchQuery) {
         return this.fetchedHonoraryData.filter(
           (member) =>
-            member.name
-              .toLowerCase()
-              .includes(this.searchQuery.toLowerCase()) ||
+            member.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
             member.id.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
       }
@@ -1425,9 +1349,7 @@ export default {
       if (this.searchQuery) {
         return this.lifeMembers.filter(
           (member) =>
-            member.name
-              .toLowerCase()
-              .includes(this.searchQuery.toLowerCase()) ||
+            member.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
             member.id.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
       }
@@ -1439,9 +1361,7 @@ export default {
       if (this.searchQuery) {
         return this.executiveMembers.filter(
           (member) =>
-            member.name
-              .toLowerCase()
-              .includes(this.searchQuery.toLowerCase()) ||
+            member.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
             member.email.toLowerCase().includes(this.searchQuery.toLowerCase())
         );
       }
@@ -1457,14 +1377,8 @@ export default {
     },
     visiblePages() {
       const maxVisiblePages = 5;
-      const startPage = Math.max(
-        1,
-        this.currentPage - Math.floor(maxVisiblePages / 2)
-      );
-      const endPage = Math.min(
-        this.totalPages,
-        startPage + maxVisiblePages - 1
-      );
+      const startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
+      const endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);
 
       const pages = [];
       for (let i = startPage; i <= endPage; i++) {
@@ -1502,23 +1416,23 @@ export default {
         // Delete based on active tab
         if (this.activetab === "life_fellow_members") {
           response = await axios.delete(
-            `http://localhost:3000/fellowmember/deleteFellowMember/${memberId}`
+            `${API_BASE_URL}/fellowmember/deleteFellowMember/${memberId}`
           );
         } else if (this.activetab === "honorary_members") {
           response = await axios.delete(
-            `http://localhost:3000/honorarymembers/deleteHonoraryMember/${memberId}`
+            `${API_BASE_URL}/honorarymembers/deleteHonoraryMember/${memberId}`
           );
         } else if (this.activetab === "life_members") {
           response = await axios.delete(
-            `http://localhost:3000/Lifemembers/deleteLifeMember/${memberId}`
+            `${API_BASE_URL}/Lifemembers/deleteLifeMember/${memberId}`
           );
         } else if (this.activetab === "ordinary_members") {
           response = await axios.delete(
-            `http://localhost:3000/ordinaryMember/deleteOrdinaryMember/${memberId}`
+            `${API_BASE_URL}/ordinaryMember/deleteOrdinaryMember/${memberId}`
           );
         } else if (this.activetab === "executive_members") {
           response = await axios.delete(
-            `http://localhost:3000/executiveMembers/deleteExecutiveMember/${memberId}`
+            `${API_BASE_URL}/executiveMembers/deleteExecutiveMember/${memberId}`
           );
         } else {
           throw new Error("Unknown tab type");
@@ -1643,10 +1557,8 @@ export default {
         life_members: "National College of Chest Physicians - Lifetime Members",
         ordinary_members:
           "National College of Chest Physicians - Ordinary Fellow Members",
-        life_fellow_members:
-          "National College of Chest Physicians - Life Fellow Members",
-        executive_members:
-          "National College of Chest Physicians - Executive Members",
+        life_fellow_members: "National College of Chest Physicians - Life Fellow Members",
+        executive_members: "National College of Chest Physicians - Executive Members",
       };
       return subtitles[tab] || "Manage member information";
     },
@@ -1702,10 +1614,26 @@ export default {
       } else if (this.activetab === "executive_members") {
         this.HideExecutiveMemberForm = !this.HideExecutiveMemberForm;
       } else if (this.activetab === "president_secretary_members") {
-        this.HidePresidentAndSecretaryMemberForm =
-          !this.HidePresidentAndSecretaryMemberForm;
+        this.HidePresidentAndSecretaryMemberForm = !this
+          .HidePresidentAndSecretaryMemberForm;
       }
     },
+    showExelFileUploadPage() {
+      const routeMap = {
+        honorary_members: "/upload-honorary-members-Excel-file",
+        life_members: "/upload-life-members-Excel-file",
+        life_fellow_members: "/upload-life-fellow-members-Excel-file",
+        ordinary_members: "/upload-ordinary-members-Excel-file",
+        executive_members: "/upload-executive-members-Excel-file",
+        president_secretary_members: "/upload-president-secretary-members-Excel-file",
+      };
+
+      const route = routeMap[this.activetab];
+      if (route) {
+        this.$router.push(route);
+      }
+    },
+
     closeHonoraryForm() {
       this.HideNccpForm = false; // <-- hide overlay + form
     },
@@ -1865,15 +1793,11 @@ export default {
     async fetchHonoraryMemberData() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/honorarymembers/getHonorarymembers"
+          `${API_BASE_URL}/honorarymembers/getHonorarymembers`
         );
         this.fetchedHonoraryData = response.data || [];
-        this.isEditingMember = Array(this.fetchedHonoraryData.length).fill(
-          false
-        );
-        this.editMemberData = JSON.parse(
-          JSON.stringify(this.fetchedHonoraryData)
-        );
+        this.isEditingMember = Array(this.fetchedHonoraryData.length).fill(false);
+        this.editMemberData = JSON.parse(JSON.stringify(this.fetchedHonoraryData));
         console.log("Honorary members data fetched successfully");
       } catch (error) {
         console.error("Error Fetching Data", error);
@@ -1885,13 +1809,11 @@ export default {
     async fetchLifeFellowMembers() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/fellowmember/getfellowmember"
+          `${API_BASE_URL}/fellowmember/getfellowmember`
         );
         this.lifeFellowMembers = response.data || [];
         this.isEditingMember = Array(this.lifeFellowMembers.length).fill(false);
-        this.editMemberData = JSON.parse(
-          JSON.stringify(this.lifeFellowMembers)
-        );
+        this.editMemberData = JSON.parse(JSON.stringify(this.lifeFellowMembers));
         console.log("Life members data fetched successfully");
       } catch (error) {
         console.error("Error Fetching Data", error);
@@ -1902,9 +1824,7 @@ export default {
     // Life Members Method
     async fetchLifeMembers() {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/Lifemembers/getXsl"
-        );
+        const response = await axios.get(`${API_BASE_URL}/Lifemembers/getXsl`);
         this.lifeMembers = response.data || [];
         this.isEditingMember = Array(this.lifeMembers.length).fill(false);
         this.editMemberData = JSON.parse(JSON.stringify(this.lifeMembers));
@@ -1919,7 +1839,7 @@ export default {
     async fetchOrdinaryMembers() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/ordinaryMember/getAllOrdinaryMembers"
+          `${API_BASE_URL}/ordinaryMember/getAllOrdinaryMembers`
         );
         this.ordinaryMembers = response.data.data || [];
         this.isEditingMember = Array(this.ordinaryMembers.length).fill(false);
@@ -1935,7 +1855,7 @@ export default {
     async fetchExecutiveMemberData() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/executiveMembers/getmemberData"
+          `${API_BASE_URL}/executiveMembers/getmemberData`
         );
         this.executiveMembers = response.data || [];
         this.isEditingMember = Array(this.executiveMembers.length).fill(false);
@@ -1950,9 +1870,7 @@ export default {
     // Subscribers Methods
     async fetchedSubscribersData() {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/news/subscribers"
-        );
+        const response = await axios.get(`${API_BASE_URL}/news/subscribers`);
         this.totalSubscribers = response.data.length || 0;
         this.subscribersList = response.data;
         console.log("Subscribers data fetched successfully");
@@ -1968,7 +1886,7 @@ export default {
     async fetchedContactQueryData() {
       try {
         const response = await axios.get(
-          "http://localhost:3000/Contact_querys/getcontactquery"
+          `${API_BASE_URL}/Contact_querys/getcontactquery`
         );
         this.totalContactQuery = response.data.length || 0;
         this.contactQueryList = response.data;
@@ -2009,7 +1927,7 @@ export default {
       formData.append("description", this.imageDescription);
 
       try {
-        await axios.post("http://localhost:3000/gallery/upload", formData, {
+        await axios.post(`${API_BASE_URL}/gallery/upload`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -2031,14 +1949,12 @@ export default {
 
     async fetchallimagesdata() {
       try {
-        const response = await axios.get(
-          "http://localhost:3000/gallery/photos"
-        );
+        const response = await axios.get(`${API_BASE_URL}/gallery/photos`);
         this.fetchedImagesData = response.data;
         console.log("Gallery images fetched successfully");
       } catch (error) {
         console.error("Error Fetching Data", error);
-        this.showErrorToast("Failed to fetch gallery images");
+        // this.showErrorToast("Failed to fetch gallery images");
       }
     },
 
@@ -2111,7 +2027,7 @@ export default {
 
       try {
         const response = await axios.put(
-          `http://localhost:3000/gallery/photos/${this.editingImage._id}/details`,
+          `${API_BASE_URL}/gallery/photos/${this.editingImage._id}/details`,
           {
             title: trimmedTitle,
             year: this.editingYear,
@@ -2122,10 +2038,8 @@ export default {
         if (response.status === 200) {
           // Update local gallery data
           this.fetchedImagesData[this.editingImageIndex].title = trimmedTitle;
-          this.fetchedImagesData[this.editingImageIndex].year =
-            this.editingYear;
-          this.fetchedImagesData[this.editingImageIndex].description =
-            trimmedDescription;
+          this.fetchedImagesData[this.editingImageIndex].year = this.editingYear;
+          this.fetchedImagesData[this.editingImageIndex].description = trimmedDescription;
 
           // Show success toast
           this.showSuccessToast(
@@ -2164,19 +2078,15 @@ export default {
 
     async deletePhoto(photoId) {
       try {
-        const confirmDelete = confirm(
-          "Are you sure you want to delete this photo?"
-        );
+        const confirmDelete = confirm("Are you sure you want to delete this photo?");
         if (confirmDelete) {
-          await axios.delete(`http://localhost:3000/gallery/photos/${photoId}`);
+          await axios.delete(`${API_BASE_URL}/gallery/photos/${photoId}`);
           this.showSuccessToast("Photo deleted successfully");
           await this.fetchallimagesdata();
         }
       } catch (error) {
         const errorMessage =
-          error?.response?.data?.message ||
-          error?.message ||
-          "Error deleting photo";
+          error?.response?.data?.message || error?.message || "Error deleting photo";
         console.error("Error deleting photo:", errorMessage);
         this.showErrorToast(errorMessage);
       }
@@ -2201,7 +2111,7 @@ export default {
       }
 
       try {
-        await axios.post("http://localhost:3000/news/sendEmails", {
+        await axios.post(`${API_BASE_URL}/news/sendEmails`, {
           subject: this.emailSubject,
           message: this.emailMessage,
         });
@@ -2211,9 +2121,7 @@ export default {
         this.emailMessage = "";
       } catch (error) {
         console.error(error);
-        this.showErrorToast(
-          "There was an error sending emails. Please try again later."
-        );
+        this.showErrorToast("There was an error sending emails. Please try again later.");
       }
     },
 
@@ -2452,11 +2360,7 @@ export default {
 }
 
 .nav-item.active {
-  background: linear-gradient(
-    135deg,
-    rgba(102, 126, 234, 0.2),
-    rgba(118, 75, 162, 0.2)
-  );
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
   color: white;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }

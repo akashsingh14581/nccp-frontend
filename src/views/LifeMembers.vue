@@ -141,6 +141,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: { BannerSection },
@@ -180,7 +181,7 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/Lifemembers/getXsl`
+          `${API_BASE_URL}/Lifemembers/getXsl`
         );
         this.lifeMembers = response.data;
       } catch (error) {

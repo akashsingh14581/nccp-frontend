@@ -55,6 +55,7 @@ import second_add_customer_data from "./datatable_second_add_customer_data.vue";
 // import third__add_customer_data from './datatable_third__add_customer_data.vue';
 // import first_form_add_customer_data from './datatable_first_form_add_customer_data.vue';
 import crmsubgroupcode from "./datatable_crm_subgroup_code.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   name: "AddCustomerData",
@@ -119,7 +120,7 @@ export default {
 
       axios
         .post(
-          "http://localhost:3000/add_customer_data/formdata_add",
+          `${API_BASE_URL}/add_customer_data/formdata_add`,
           {
             all_form: [
               this.second_add_customer_data,

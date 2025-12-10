@@ -39,7 +39,7 @@
 
 <script>
 import axios from 'axios';
-// const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -60,7 +60,7 @@ export default {
   methods: {
     async submitHonoraryMembersData() {
       try {
-        await axios.post(`http://localhost:3000/honorarymembers/PostHonorarymembers`, this.HonoraryMembersData);
+        await axios.post(`${API_BASE_URL}/honorarymembers/PostHonorarymembers`, this.HonoraryMembersData);
         this.$emit('honorMemberFormSubmit');
         this.$emit('refreshHonorMembers');
         alert("Successfully Submitted");

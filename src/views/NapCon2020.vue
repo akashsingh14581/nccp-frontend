@@ -224,14 +224,14 @@
 
       <div class="images">
         <div class="first-img">
-          <img src="../assets/doctor/sngaur-sir.png" />
+          <img src="../assets/doctor/sngaur-sir.png" alt="Napcon20" loading="lazy" />
           <p class="text-center">Prof. Dr. S. N. Gaur</p>
           <p class="text-center" style="position: relative; margin-top: -12px">
             Organising Chairman, NAPCON 2020
           </p>
         </div>
         <div class="first-img">
-          <img src="../assets/doctor/nikhil-sir.jpg" />
+          <img src="../assets/doctor/nikhil-sir.jpg" alt="napcon20" loading="lazy" />
           <p class="text-center">Dr. Nikhil Sarangdhar</p>
           <p class="text-center" style="position: relative; margin-top: -12px">
             Organising Secretary, NAPCON 2020

@@ -102,7 +102,7 @@
 // In your JavaScript or TypeScript file
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import axios from "axios";
-// const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   data() {
@@ -140,7 +140,7 @@ export default {
         }
 
         const response = await axios.post(
-          `http://localhost:3000/editor/editableContent`,
+          `${API_BASE_URL}/editor/editableContent`,
           { fileName, content, user_id }
         );
 

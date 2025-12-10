@@ -32,7 +32,7 @@
               :src="imageBaseUrl + photo.imageUrl"
               class="img-fluid rounded w-100"
               style="height: 220px; object-fit: cover;"
-              :alt="photo.title"
+              :alt="photo.title" loading="lazy"
             />
             <div class="photo-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75 text-white opacity-0 transition">
               <h6 class="text-center px-3 mb-0">{{ photo.title }}</h6>
@@ -75,7 +75,7 @@
               :src="currentPhotoUrl"
               class="img-fluid w-100 rounded"
               style="max-height: 85vh; object-fit: contain;"
-              :alt="currentPhotoTitle"
+              :alt="currentPhotoTitle" loading="lazy"
             />
 
             <!-- Caption (Title + Description) -->

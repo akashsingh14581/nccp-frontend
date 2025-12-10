@@ -118,6 +118,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -156,7 +157,7 @@ export default {
     async fetchHonorarymemberdatas() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/honorarymembers/getHonorarymembers`
+          `${API_BASE_URL}/honorarymembers/getHonorarymembers`
         );
         this.fetchedhonoraryData = response.data;
         console.log(this.fetchedhonoraryData, "this is fetched data");

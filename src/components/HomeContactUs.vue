@@ -198,6 +198,7 @@
 import axios from "axios";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   name: "ContactUs",
@@ -278,7 +279,7 @@ export default {
 
       try {
         await axios.post(
-          "http://localhost:3000/Contact_querys/postcontactquery",
+          `${API_BASE_URL}/Contact_querys/postcontactquery`,
           payload
         );
 

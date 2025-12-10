@@ -23,7 +23,7 @@
   
   <script>
   import axios from 'axios';
-  
+  import {API_BASE_URL} from '../../utils/apis.js'
   export default {
     components: {
     },
@@ -40,7 +40,7 @@
     methods: {
       async submitRamanAwardData() {
         try {
-         await axios.post('http://localhost:3000/RamanAward/PostRamanAwarddata', this.RamanAwardData);
+         await axios.post(`${API_BASE_URL}/RamanAward/PostRamanAwarddata`, this.RamanAwardData);
           this.$emit('formSubmitted');
           alert("Successfully Submitted")
         } catch (error) {

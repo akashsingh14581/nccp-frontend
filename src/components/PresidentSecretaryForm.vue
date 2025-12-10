@@ -36,7 +36,7 @@
 
 <script>
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   name: "PresidentSecretaryForm",
   data() {
@@ -52,7 +52,7 @@ export default {
     async submitPresidentSecretaryData() {
       try {
         await axios.post(
-          "http://localhost:3000/api/president-secretary",
+          `${API_BASE_URL}/api/president-secretary`,
           this.formData
         );
         alert("✅ Record submitted successfully!");

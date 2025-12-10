@@ -390,7 +390,7 @@
 <script>
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -569,7 +569,7 @@ export default {
 
         console.log('Formatted Honorary Data:', formattedData);
 
-        const response = await axios.post(`http://localhost:3000/honorarymembers/uploadHonoraryMembersExcel`, {
+        const response = await axios.post(`${API_BASE_URL}/honorarymembers/uploadHonoraryMembersExcel`, {
           honoraryMembers: formattedData
         });
 

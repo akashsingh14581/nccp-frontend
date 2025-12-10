@@ -110,6 +110,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -156,7 +157,7 @@ export default {
     async fetchmemberdata() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/executiveMembers/getmemberData`
+          `${API_BASE_URL}/executiveMembers/getmemberData`
         );
         this.fetchedData = response.data;
         console.log(this.fetchedData);

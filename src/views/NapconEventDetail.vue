@@ -16,7 +16,7 @@
         <img
           :src="imageBaseUrl + photo.imageUrl"
           :alt="photo.title"
-          class="gallery-img"
+          class="gallery-img" loading="lazy"
         />
         <div class="overlay">
           <div class="overlay-text">{{ photo.title }}</div>
@@ -47,7 +47,7 @@
           <img
             :src="imageBaseUrl + currentPhoto.imageUrl"
             class="lightbox-img"
-            :alt="currentPhoto.title"
+            :alt="currentPhoto.title" loading="lazy"
           />
 
           <!-- Title & description -->
@@ -64,6 +64,7 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
       components: {
@@ -80,7 +81,7 @@ export default {
   },
   async created() {
     const id = this.$route.params.id;
-    const res = await axios.get("http://localhost:3000/api/events");
+    const res = await axios.get(`${API_BASE_URL}/api/events`);
     this.event = res.data.find((e) => e._id === id);
   },
   methods: {

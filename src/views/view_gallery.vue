@@ -22,7 +22,7 @@
     <h2>Gallery</h2>
     <div class="gallery">
       <div v-for="photo in photos" :key="photo._id">
-        <img :src="photo.imageUrl" alt="Photo" />
+        <img :src="photo.imageUrl" alt="Photo" loading="lazy" />
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import axios from "axios";
-// const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: { BannerSection },
@@ -53,7 +53,7 @@ export default {
 
       try {
         const response = await axios.post(
-          `http://localhost:3000/gallery/upload`,
+          `${API_BASE_URL}/gallery/upload`,
           formData,
           {
             headers: {

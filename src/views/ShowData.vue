@@ -26,7 +26,7 @@
   </div> -->
     <div class="card" v-if="lifeMembers.length > 0">
       <div class="profile-ui" v-for="(card, index) in lifeMembers" :key="index">
-        <img :src="card.img" />
+        <img :src="card.img" alt="card" loading="lazy" />
         <i class="bi bi-person-check-fill"></i
         ><span v-html="card.name" class="text-center"></span><br />
         <i class="bi bi-person-check-fill"></i
@@ -45,6 +45,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 // const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
 
 export default {
@@ -61,7 +62,7 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/Lifemembers/getXsl`
+          `${API_BASE_URL}/Lifemembers/getXsl`
         );
         this.lifeMembers = response.data;
       } catch (error) {

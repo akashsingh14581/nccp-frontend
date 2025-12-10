@@ -197,7 +197,7 @@
               <div class="files-list">
                 <div v-for="(file, index) in selectedFiles" :key="index" class="file-item">
                   <div class="file-preview">
-                    <img :src="getPreviewUrl(file)" alt="Preview" />
+                    <img :src="getPreviewUrl(file)" alt="Preview" loading="lazy"  />
                   </div>
                   <div class="file-info">
                     <div class="file-name">{{ file.name }}</div>
@@ -248,7 +248,7 @@
             </div>
             <div class="gallery-grid">
               <div v-for="(photo, index) in uploadedPhotos" :key="index" class="gallery-item">
-                <img :src="getImageUrl(photo.imageUrl)" :alt="photo.title" />
+                <img :src="getImageUrl(photo.imageUrl)" :alt="photo.title" loading="lazy" />
                 <div class="photo-overlay">
                   <div class="photo-info">
                     <h5>{{ photo.title }}</h5>

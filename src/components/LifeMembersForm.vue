@@ -45,7 +45,7 @@
 
 <script>
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -63,7 +63,7 @@ export default {
   methods: {
     async submitLifeMembersData() {
       try {
-        await axios.post('http://localhost:3000/lifemembers/createLifeMember', this.LifeMembersData);
+        await axios.post(`${API_BASE_URL}/lifemembers/createLifeMember`, this.LifeMembersData);
         this.$emit('refreshLifeMembers');
         this.$emit('closeLifeMembersForm');
         alert("Successfully Submitted");

@@ -280,6 +280,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -297,7 +298,7 @@ export default {
     },
     async fetchAwards() {
       try {
-        const response = await axios.get("http://localhost:3000/api/awards");
+        const response = await axios.get(`${API_BASE_URL}/api/awards`);
         this.awardData = response.data;
       } catch (error) {
         console.error("Error fetching awards:", error);

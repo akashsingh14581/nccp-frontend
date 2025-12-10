@@ -105,6 +105,7 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -160,7 +161,7 @@ export default {
 
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/president-secretary"
+          `${API_BASE_URL}/api/president-secretary`
         );
         this.tableData = response.data.sort((a, b) => b.year - a.year);
         this.currentPage = 1;

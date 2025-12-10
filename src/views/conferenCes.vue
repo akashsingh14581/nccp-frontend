@@ -37,8 +37,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
-
-// const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: {
@@ -53,7 +52,7 @@ export default {
   methods: {
     async fetchFormData() {
       try {
-        const response = await axios.get(`http://localhost:3000/api/forms`);
+        const response = await axios.get(`${API_BASE_URL}/api/forms`);
         this.fetchedData = response.data;
       } catch (error) {
         console.error("Error fetching form data:", error);

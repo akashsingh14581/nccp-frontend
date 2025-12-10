@@ -28,7 +28,7 @@
     <div class="photos-grid">
       <div v-for="photo in photos" :key="photo._id" class="photo-card">
         <div class="photo-image">
-          <img :src="getImageUrl(photo.imageUrl)" :alt="photo.title" />
+          <img :src="getImageUrl(photo.imageUrl)" :alt="photo.title" loading="lazy" />
           <div class="photo-overlay">
             <button class="btn-zoom" @click="openLightbox(photo)">
               <i class="bi bi-zoom-in"></i>
@@ -542,7 +542,7 @@ export default {
   padding: 20px;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .gallery-header {

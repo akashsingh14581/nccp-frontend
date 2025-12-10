@@ -480,7 +480,7 @@
 <script>
 import * as XLSX from "xlsx";
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -671,7 +671,7 @@ export default {
 
         // Update the API endpoint for executive members
         const response = await axios.post(
-          `http://localhost:3000/executiveMembers/upload-Exceutive-member-excel`,
+          `${API_BASE_URL}/executiveMembers/upload-Exceutive-member-excel`,
           {
             members: formattedData,
           }

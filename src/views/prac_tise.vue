@@ -11,6 +11,7 @@
 
 <script>
 import axios from 'axios';
+import {API_BASE_URL} from '../utils/apis.js'
 // const apiBaseUrl = import.meta.env.VUE_API_BASE_URL;
 
 
@@ -30,7 +31,7 @@ export default{
 methods: {
     async submitdata(){
         try{
-            await axios.post(`http://localhost:3000/practicedata/pr`, this.practicedata);
+            await axios.post(`${API_BASE_URL}/practicedata/pr`, this.practicedata);
             this.$emit('Successfully Submited');
         }
         catch(error){

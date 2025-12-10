@@ -16,7 +16,7 @@
 
 <script>
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   props: ["show"],
   data() {
@@ -30,7 +30,7 @@ export default {
   methods: {
     async handleSubmit() {
       try {
-        await axios.post("http://localhost:3000/Contact_querys/postcontactquery", {
+        await axios.post(`${API_BASE_URL}/Contact_querys/postcontactquery`, {
           firstName: this.firstName,
           lastName: this.lastName,
           email: this.email,

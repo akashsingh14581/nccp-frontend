@@ -124,7 +124,7 @@ import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -166,7 +166,7 @@ export default {
     // POST: Create a new email template
     async sendEmailTemplateAllData() {
       try {
-        await axios.post(`http://localhost:3000/templateData/postEmailTemplateData`, this.sendEmailTemplate);
+        await axios.post(`${API_BASE_URL}/templateData/postEmailTemplateData`, this.sendEmailTemplate);
         toast.success("Template Created Successfully", {
           position: "top-right",
           autoClose: 3000,
@@ -195,7 +195,7 @@ export default {
     async updateEmailTemplate() {
       try {
         console.log('Updating template with data:', this.sendEmailTemplate);
-        await axios.put(`http://localhost:3000/templateData/updateEmailTemplateData/${this.sendEmailTemplate._id}`, this.sendEmailTemplate);
+        await axios.put(`${API_BASE_URL}/templateData/updateEmailTemplateData/${this.sendEmailTemplate._id}`, this.sendEmailTemplate);
         toast.success("Template Updated Successfully", {
           position: "top-right",
           autoClose: 3000,
@@ -224,7 +224,7 @@ export default {
     // GET: Fetch all email templates
     async getAllEmailTemplateSaveData() {
       try {
-        const response = await axios.get(`http://localhost:3000/templateData/getEmailTemplateData`);
+        const response = await axios.get(`${API_BASE_URL}/templateData/getEmailTemplateData`);
         console.log(response.data);  // Log the fetched data
         this.fetchedEmailTemplateData = response.data;
       } catch (error) {
@@ -243,7 +243,7 @@ export default {
     async deleteEmailTemplate(id) {
       if (confirm("Are you sure you want to delete this template?")) {
         try {
-          await axios.delete(`http://localhost:3000/templateData/deleteEmailTemplateData/${id}`);
+          await axios.delete(`${API_BASE_URL}/templateData/deleteEmailTemplateData/${id}`);
           toast.success("Template Deleted Successfully", {
             position: "top-right",
             autoClose: 3000,

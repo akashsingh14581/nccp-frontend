@@ -45,7 +45,7 @@
 
 <script>
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
     data() {
         return {
@@ -64,7 +64,7 @@ export default {
         async submitOrdinaryMembersData() {
             try {
                 const response = await axios.post(
-                    'http://localhost:3000/ordinaryMember/createOrdinaryMember',
+                    `${API_BASE_URL}/ordinaryMember/createOrdinaryMember`,
                     this.ordinaryMembersData
                 );
                 console.log(response)

@@ -90,6 +90,7 @@
 
 <script>
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 
@@ -111,7 +112,7 @@ export default {
       }
 
       try {
-        await axios.post(`http://localhost:3000/news/postNesletter`, {
+        await axios.post(`${API_BASE_URL}/news/postNesletter`, {
           email: this.email,
         });
 

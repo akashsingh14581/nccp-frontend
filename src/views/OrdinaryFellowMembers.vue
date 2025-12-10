@@ -145,6 +145,7 @@
 <script>
 import axios from "axios";
 import BannerSection from "@/components/BannerSection.vue";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: { BannerSection },
@@ -183,7 +184,7 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/ordinaryMember/getAllOrdinaryMembers`
+          `${API_BASE_URL}/ordinaryMember/getAllOrdinaryMembers`
         );
         this.ordinaryMembers = response.data.data;
       } catch (error) {

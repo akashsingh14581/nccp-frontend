@@ -395,6 +395,7 @@
 import axios from "axios";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
     name: "AwardManagement",
@@ -569,7 +570,7 @@ export default {
             this.isImporting = true;
             try {
                 for (const award of this.importedData) {
-                    await axios.post("http://localhost:3000/api/awards", award);
+                    await axios.post(`${API_BASE_URL}/api/awards`, award);
                 }
                 this.showSuccessToast("Imported data submitted successfully");
                 this.importedData = [];
@@ -588,7 +589,7 @@ export default {
         },
         async fetchAwards() {
             try {
-                const res = await axios.get("http://localhost:3000/api/awards");
+                const res = await axios.get(`${API_BASE_URL}/api/awards`);
                 this.awards = res.data;
             } catch {
                 this.showErrorToast("Failed to load awards");
@@ -596,7 +597,7 @@ export default {
         },
         async editAward(id) {
             try {
-                const res = await axios.get(`http://localhost:3000/api/awards/${id}`);
+                const res = await axios.get(`${API_BASE_URL}/api/awards/${id}`);
                 const d = res.data;
                 this.award = {
                     awardName: d.awardName,
@@ -628,7 +629,7 @@ export default {
         async deleteAwardConfirmed() {
             if (!this.awardToDelete) return;
             try {
-                await axios.delete(`http://localhost:3000/api/awards/${this.awardToDelete.id}`);
+                await axios.delete(`${API_BASE_URL}/api/awards/${this.awardToDelete.id}`);
                 this.showSuccessToast("Award deleted successfully");
                 this.fetchAwards();
                 if (this.awardId === this.awardToDelete.id) {
@@ -672,10 +673,10 @@ export default {
                     })),
                 };
                 if (this.awardId) {
-                    await axios.put(`http://localhost:3000/api/awards/${this.awardId}`, awardData);
+                    await axios.put(`${API_BASE_URL}/api/awards/${this.awardId}`, awardData);
                     this.showSuccessToast("Award updated successfully");
                 } else {
-                    await axios.post("http://localhost:3000/api/awards", awardData);
+                    await axios.post(`${API_BASE_URL}/api/awards`, awardData);
                     this.showSuccessToast("Award created successfully");
                 }
                 this.resetForm();

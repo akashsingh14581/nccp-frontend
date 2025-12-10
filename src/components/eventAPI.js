@@ -1,5 +1,6 @@
 import axios from "axios";
-const API = "http://localhost:3000/api";
+import {API_BASE_URL} from '../utils/apis.js'
+const API = `${API_BASE_URL}/api`;
 
 // Event APIs
 export const createEvent = (data) => axios.post(`${API}/events`, data);

@@ -57,7 +57,7 @@
             <img
               src="../assets/jamila-polatova-7261803_1280.jpg"
               class="card-img-top"
-              alt="Who We Are"
+              alt="Who We Are" loading="lazy"
             />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
@@ -81,7 +81,7 @@
             <img
               src="../assets/about/about3.jpg"
               class="card-img-top"
-              alt="Our Constitution"
+              alt="Our Constitution" loading="lazy"
             />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
@@ -105,7 +105,7 @@
             <img
               src="../assets/about/about1.jpg"
               class="card-img-top"
-              alt="NCCP Publications"
+              alt="NCCP Publications" loading="lazy"
             />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
@@ -129,7 +129,7 @@
             <img
               src="../assets/about/about2.jpg"
               class="card-img-top"
-              alt="Our Events"
+              alt="Our Events" loading="lazy"
             />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
@@ -232,7 +232,7 @@
                       <img
                         :src="imageBaseUrl + event.photos[0].imageUrl"
                         class="img-fluid"
-                        :alt="event.title"
+                        :alt="event.title" loading="lazy"
                       />
                     </div>
                     <div class="event-content">
@@ -260,7 +260,7 @@
                       <img
                         :src="imageBaseUrl + event.photos[0].imageUrl"
                         class="img-fluid"
-                        :alt="event.title"
+                        :alt="event.title" loading="lazy"
                       />
                     </div>
                     <div class="event-content">
@@ -288,7 +288,7 @@
                       <img
                         :src="imageBaseUrl + event.photos[0].imageUrl"
                         class="img-fluid"
-                        :alt="event.title"
+                        :alt="event.title" loading="lazy"
                       />
                     </div>
                     <div class="event-content">

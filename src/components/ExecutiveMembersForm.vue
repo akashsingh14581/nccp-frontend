@@ -36,7 +36,7 @@
 
 <script>
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -53,7 +53,7 @@ export default {
     async executiveMembers() {
       try {
         await axios.post(
-          `http://localhost:3000/executiveMembers/PostmemberForm`,
+          `${API_BASE_URL}/executiveMembers/PostmemberForm`,
           this.memberData
         );
         this.$emit("refreshExecutiveMembers");

@@ -396,7 +396,7 @@
 <script>
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -575,7 +575,7 @@ export default {
 
         console.log('Formatted Data:', formattedData);
 
-        const response = await axios.post(`http://localhost:3000/fellowmember/uploadfellowmember`, {
+        const response = await axios.post(`${API_BASE_URL}/fellowmember/uploadfellowmember`, {
           chapters: formattedData
         });
 

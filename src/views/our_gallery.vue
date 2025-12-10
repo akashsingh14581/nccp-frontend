@@ -132,13 +132,14 @@
 <script>
 import BannerSection from "@/components/BannerSection.vue";
 import axios from "axios";
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   components: { BannerSection },
   data() {
     return {
       fetchedImagesData: [],
-      imagePath: "http://localhost:3000",
+      imagePath: `${API_BASE_URL}`,
       isModalOpen: false,
       currentImageIndex: 0,
       currentPage: 1,
@@ -176,7 +177,7 @@ export default {
     async fetchallimagesdata() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/gallery/photos`
+          `${API_BASE_URL}/gallery/photos`
         );
         this.fetchedImagesData = response.data;
       } catch (error) {

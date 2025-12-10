@@ -3,7 +3,7 @@
     <div class="login-card">
       <!-- Logo -->
       <div class="logo">
-        <img src="../assets/logo.png" alt="NCCP Logo" />
+        <img src="../assets/logo.png" alt="NCCP Logo" loading="lazy" />
         <h1>NCCP</h1>
         <p>National College of Chest Physicians</p>
       </div>
@@ -39,6 +39,7 @@
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import {API_BASE_URL} from '../utils/apis.js'
 
 export default {
   name: 'LoginView',
@@ -72,7 +73,7 @@ export default {
       this.errorMessage = '';
 
       try {
-        const response = await axios.post('http://localhost:3000/api/auth/login', {
+        const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
           email: this.email,
           password: this.password,
         });

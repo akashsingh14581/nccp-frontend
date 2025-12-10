@@ -12,7 +12,7 @@
       <div class="publication_book mt-5">
         <div v-for="card in cards" :key="card">
           <div class="img_div">
-            <img :src="card.images" style="border-radius: 10px" />
+            <img :src="card.images" style="border-radius: 10px" loading="lazy" alt="publication" />
           </div>
           <p class="text-center" v-html="card.paragraph"></p>
         </div>

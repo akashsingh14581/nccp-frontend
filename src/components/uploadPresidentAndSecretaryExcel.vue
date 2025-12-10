@@ -372,7 +372,7 @@
 /* eslint-disable */
 import * as XLSX from 'xlsx';
 import axios from 'axios';
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   data() {
     return {
@@ -555,7 +555,7 @@ export default {
 
         console.log('Formatted President & Secretary Data:', formattedData);
 
-        const response = await axios.post(`http://localhost:3000/api/president-secretary/uploadExcel`, {
+        const response = await axios.post(`${API_BASE_URL}/api/president-secretary/uploadExcel`, {
           records: formattedData
         });
 

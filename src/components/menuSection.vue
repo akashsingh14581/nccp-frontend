@@ -5,7 +5,7 @@
         <!-- Logo -->
         <div class="logo">
           <router-link @click="closeMobileMenu" to="/">
-            <img src="../assets/logo.png" alt="Logo" class="img-fluid" />
+            <img src="../assets/logo.png" alt="Logo" class="img-fluid" loading="lazy" />
           </router-link>
         </div>
 
@@ -190,7 +190,7 @@
 
 <script>
 import axios from "axios";
-
+import {API_BASE_URL} from '../utils/apis.js'
 export default {
   name: "AppNavbar",
 
@@ -246,7 +246,7 @@ export default {
 
     async fetchYears() {
       try {
-        const res = await axios.get("http://localhost:3000/api/events");
+        const res = await axios.get(`${API_BASE_URL}/api/events`);
         const EventData = res.data;
         const allYears = EventData.map((item) => item.year);
         this.years = [...new Set(allYears)].sort((a, b) => b - a);
@@ -257,7 +257,7 @@ export default {
 
     async fetchAwards() {
       try {
-        const res = await axios.get("http://localhost:3000/api/awards");
+        const res = await axios.get(`${API_BASE_URL}/api/awards`);
         this.awards = res.data;
       } catch (error) {
         console.error("Error fetching awards:", error);
@@ -512,6 +512,7 @@ a {
 .navbar .dropdown ul li {
   min-width: 200px;
   font-size: 13px;
+  text-transform: capitalize;
 }
 
 .navbar .dropdown ul a {

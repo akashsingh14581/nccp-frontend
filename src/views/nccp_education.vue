@@ -7,7 +7,7 @@
         src="../assets/logo.png"
         alt="NCCP Logo"
         class="mb-3"
-        width="80"
+        width="80" loading="lazy"
       />
       <h1 class="fw-bold text-primary">NCCP (India) Education</h1>
       <p class="lead text-muted">
