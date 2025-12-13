@@ -1115,7 +1115,6 @@ export default {
   border-radius: 6px;
   font-size: 14px;
   transition: border-color 0.2s;
-  font-family: inherit;
 }
 
 .form-group input:focus,

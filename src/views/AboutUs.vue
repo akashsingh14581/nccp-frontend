@@ -88,7 +88,7 @@
 
           <div class="history-image">
             <img
-              src="../assets/about_vector/about-doctor.png"
+              src="../assets/about_vector/about-doctor.webp"
               alt="Medical professional" loading="lazy"
             />
           </div>

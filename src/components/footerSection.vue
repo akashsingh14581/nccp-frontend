@@ -1,38 +1,6 @@
 <template>
   <div class="container">
     <div class="footer_section">
-      <!-- Newsletter Section -->
-      <div class="newsletter-content text-center mb-5">
-        <h3 class="newsletter-title mb-3">Stay Updated with Our Newsletter</h3>
-        <p class="newsletter-subtitle text-muted">
-          Be the first to receive the latest updates, news, and special offers
-          directly in your inbox
-        </p>
-
-        <div class="subscribe-form mt-4">
-          <form
-            @submit.prevent="subscribe"
-            class="d-flex flex-column flex-md-row gap-3 justify-content-center"
-          >
-            <div class="input-group input-group-lg" style="max-width: 400px">
-              <input
-                v-model="email"
-                type="email"
-                class="form-control rounded-pill px-4"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg rounded-pill px-4 subscribe-btn"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </div>
-
       <!-- Navigation Links -->
       <div class="navigation-links mb-4">
         <div class="d-flex flex-wrap justify-content-center gap-4">
@@ -89,66 +57,17 @@
 </template>
 
 <script>
-import axios from "axios";
-import {API_BASE_URL} from '../utils/apis.js'
-import { toast } from "vue3-toastify";
-import "vue3-toastify/dist/index.css";
-
 export default {
   name: "NewsletterFooter",
-  data() {
-    return {
-      email: "",
-    };
-  },
-  methods: {
-    async subscribe() {
-      if (!this.email) {
-        toast.error("Please enter your email address", {
-          position: "bottom-right",
-          autoClose: 3000,
-        });
-        return;
-      }
-
-      try {
-        await axios.post(`${API_BASE_URL}/news/postNesletter`, {
-          email: this.email,
-        });
-
-        toast.success("Successfully subscribed to our newsletter!", {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-        });
-
-        this.email = "";
-      } catch (error) {
-        console.error("Subscription error:", error);
-
-        const errorMessage =
-          error.response?.data?.message ||
-          "There was an error. Please try again later.";
-
-        toast.error(errorMessage, {
-          position: "bottom-right",
-          autoClose: 3000,
-        });
-      }
-    },
-  },
 };
 </script>
 
 <style scoped>
 .footer_section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 80px 40px;
+  padding: 20px;
   border-radius: 20px;
-  margin-top: 80px;
+  margin-top: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -260,10 +179,6 @@ export default {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .footer_section {
-    padding: 60px 20px;
-    margin-top: 60px;
-  }
 
   .newsletter-title {
     font-size: 1.8rem;
@@ -293,10 +208,7 @@ export default {
 }
 
 @media (max-width: 576px) {
-  .footer_section {
-    padding: 40px 15px;
-    margin-top: 40px;
-  }
+
 
   .newsletter-title {
     font-size: 1.5rem;

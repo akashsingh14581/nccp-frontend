@@ -931,7 +931,6 @@ export default {
   font-size: 0.875rem;
   transition: all 0.3s ease;
   background: white;
-  font-family: inherit;
 }
 
 .form-group input:focus,

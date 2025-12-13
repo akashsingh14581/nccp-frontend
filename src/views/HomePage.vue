@@ -1,38 +1,7 @@
 <template>
   <!-- ======= Enhanced Hero Section ======= -->
   <section id="hero" class="hero-section d-flex align-items-center">
-    <div class="video-container">
-      <video autoplay muted loop id="bg-video">
-        <source src="../assets/video1.mp4" type="video/mp4" />
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-
-    <div class="container text-center position-relative hero-content">
-      <div
-        class="hero-text"
-        data-aos="zoom-in-up"
-        data-aos-delay="50"
-        data-aos-duration="1000"
-      >
-        <span class="hero-subtitle"
-          >Welcome To National College Of Chest Physicians</span
-        >
-        <h1 class="hero-title">
-          Education and Research In <br /><span class="highlight"
-            >"Respiratory Disease & Allied Sciences"</span
-          >
-        </h1>
-        <div class="hero-divider"></div>
-        <p class="hero-description">
-          A professional society for continuing education & research in
-          respiratory medicine
-        </p>
-        <a href="#contact_form" class="btn btn-primary btn-lg hero-cta scrollt">
-          <i class="bi bi-arrow-right me-2"></i>Join Us
-        </a>
-      </div>
-    </div>
+    <SwiperComponent />
   </section>
 
   <!-- ----------------------Enhanced Cards Section------------------------------------ -->
@@ -46,19 +15,11 @@
     </div>
 
     <div class="row g-4">
-      <div
-        class="col-md-6 col-lg-3"
-        data-aos="zoom-out"
-        data-aos-delay="50"
-        data-aos-duration="1000"
-      >
+      <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="50" data-aos-duration="1000">
         <div class="card h-100 feature-card">
           <div class="card-img-container">
-            <img
-              src="../assets/jamila-polatova-7261803_1280.jpg"
-              class="card-img-top"
-              alt="Who We Are" loading="lazy"
-            />
+            <img src="../assets/about/about4.webp" class="card-img-top" alt="Who We Are"
+              loading="lazy" />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
                 <router-link class="card-link" to="/about">
@@ -70,19 +31,10 @@
         </div>
       </div>
 
-      <div
-        class="col-md-6 col-lg-3"
-        data-aos="zoom-out"
-        data-aos-delay="100"
-        data-aos-duration="1000"
-      >
+      <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="100" data-aos-duration="1000">
         <div class="card h-100 feature-card">
           <div class="card-img-container">
-            <img
-              src="../assets/about/about3.jpg"
-              class="card-img-top"
-              alt="Our Constitution" loading="lazy"
-            />
+            <img src="../assets/about/about3.webp" class="card-img-top" alt="Our Constitution" loading="lazy" />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
                 <router-link class="card-link" to="/Constitution">
@@ -94,19 +46,10 @@
         </div>
       </div>
 
-      <div
-        class="col-md-6 col-lg-3"
-        data-aos="zoom-out"
-        data-aos-delay="150"
-        data-aos-duration="1000"
-      >
+      <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="150" data-aos-duration="1000">
         <div class="card h-100 feature-card">
           <div class="card-img-container">
-            <img
-              src="../assets/about/about1.jpg"
-              class="card-img-top"
-              alt="NCCP Publications" loading="lazy"
-            />
+            <img src="../assets/about/about1.webp" class="card-img-top" alt="NCCP Publications" loading="lazy" />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
                 <router-link class="card-link" to="/nccp_publications">
@@ -118,19 +61,10 @@
         </div>
       </div>
 
-      <div
-        class="col-md-6 col-lg-3"
-        data-aos="zoom-out"
-        data-aos-delay="200"
-        data-aos-duration="1000"
-      >
+      <div class="col-md-6 col-lg-3" data-aos="zoom-out" data-aos-delay="200" data-aos-duration="1000">
         <div class="card h-100 feature-card">
           <div class="card-img-container">
-            <img
-              src="../assets/about/about2.jpg"
-              class="card-img-top"
-              alt="Our Events" loading="lazy"
-            />
+            <img src="../assets/about/about2.webp" class="card-img-top" alt="Our Events" loading="lazy" />
             <div class="card-img-overlay d-flex align-items-end">
               <div class="card-link-container">
                 <router-link class="card-link" to="/NAPCON2020">
@@ -153,15 +87,10 @@
             <h3 class="cta-title">National College of Chest Physicians</h3>
             <p class="cta-text">
               A professional Society For Continuing
-              <span class="highlight-text"
-                >Education & Research in Respiratory Disease & Allied
-                Sciences</span
-              >
+              <span class="highlight-text">Education & Research in Respiratory Disease & Allied
+                Sciences</span>
             </p>
-            <a
-              class="btn btn-outline-light btn-lg cta-btn"
-              href="#contact_form"
-            >
+            <a class="btn btn-outline-light btn-lg cta-btn" href="#contact_form">
               <i class="bi bi-question-circle me-2"></i>Get a query
             </a>
           </div>
@@ -183,33 +112,17 @@
 
       <div class="row">
         <div class="col-lg-3 mb-4">
-          <div
-            class="nav flex-column nav-pills events-nav"
-            role="tablist"
-            aria-orientation="vertical"
-          >
-            <button
-              class="nav-link text-start"
-              :class="{ active: activeTab === 'newest_event' }"
-              @click="setActiveTab('newest_event')"
-              role="tab"
-            >
+          <div class="nav flex-column nav-pills events-nav" role="tablist" aria-orientation="vertical">
+            <button class="nav-link text-start" :class="{ active: activeTab === 'newest_event' }"
+              @click="setActiveTab('newest_event')" role="tab">
               <i class="bi bi-calendar4-event me-2"></i> Newest Events
             </button>
-            <button
-              class="nav-link text-start"
-              :class="{ active: activeTab === 'popular_event' }"
-              @click="setActiveTab('popular_event')"
-              role="tab"
-            >
+            <button class="nav-link text-start" :class="{ active: activeTab === 'popular_event' }"
+              @click="setActiveTab('popular_event')" role="tab">
               <i class="bi bi-calendar4-event me-2"></i> Popular Events
             </button>
-            <button
-              class="nav-link text-start"
-              :class="{ active: activeTab === 'feature_event' }"
-              @click="setActiveTab('feature_event')"
-              role="tab"
-            >
+            <button class="nav-link text-start" :class="{ active: activeTab === 'feature_event' }"
+              @click="setActiveTab('feature_event')" role="tab">
               <i class="bi bi-calendar4-event me-2"></i> Featured Events
             </button>
           </div>
@@ -217,23 +130,13 @@
 
         <div class="col-lg-9">
           <div class="tab-content">
-            <div
-              class="tab-pane fade"
-              :class="{ 'show active': activeTab === 'newest_event' }"
-            >
+            <div class="tab-pane fade" :class="{ 'show active': activeTab === 'newest_event' }">
               <div class="row g-4">
-                <div
-                  class="col-sm-6 col-md-4 col-lg-3"
-                  v-for="event in newestEvents"
-                  :key="event._id"
-                >
+                <div class="col-sm-6 col-md-4 col-lg-3" v-for="event in newestEvents" :key="event._id">
                   <div class="event-card" @click="goToYearPage(event._id)">
                     <div class="event-image">
-                      <img
-                        :src="imageBaseUrl + event.photos[0].imageUrl"
-                        class="img-fluid"
-                        :alt="event.title" loading="lazy"
-                      />
+                      <img :src="imageBaseUrl + event.photos[0].imageUrl" class="img-fluid" :alt="event.title"
+                        loading="lazy" />
                     </div>
                     <div class="event-content">
                       <h5 class="event-year">Year {{ event.year }}</h5>
@@ -245,23 +148,13 @@
             </div>
 
             <!-- Popular -->
-            <div
-              class="tab-pane fade"
-              :class="{ 'show active': activeTab === 'popular_event' }"
-            >
+            <div class="tab-pane fade" :class="{ 'show active': activeTab === 'popular_event' }">
               <div class="row g-4">
-                <div
-                  class="col-sm-6 col-md-4 col-lg-3"
-                  v-for="event in popularEvents"
-                  :key="event._id"
-                >
+                <div class="col-sm-6 col-md-4 col-lg-3" v-for="event in popularEvents" :key="event._id">
                   <div class="event-card" @click="goToYearPage(event._id)">
                     <div class="event-image">
-                      <img
-                        :src="imageBaseUrl + event.photos[0].imageUrl"
-                        class="img-fluid"
-                        :alt="event.title" loading="lazy"
-                      />
+                      <img :src="imageBaseUrl + event.photos[0].imageUrl" class="img-fluid" :alt="event.title"
+                        loading="lazy" />
                     </div>
                     <div class="event-content">
                       <h5 class="event-year">Year {{ event.year }}</h5>
@@ -273,23 +166,13 @@
             </div>
 
             <!-- All Events -->
-            <div
-              class="tab-pane fade"
-              :class="{ 'show active': activeTab === 'feature_event' }"
-            >
+            <div class="tab-pane fade" :class="{ 'show active': activeTab === 'feature_event' }">
               <div class="row g-4">
-                <div
-                  class="col-sm-6 col-md-4 col-lg-3"
-                  v-for="event in allEvents"
-                  :key="event._id"
-                >
+                <div class="col-sm-6 col-md-4 col-lg-3" v-for="event in allEvents" :key="event._id">
                   <div class="event-card" @click="goToYearPage(event._id)">
                     <div class="event-image">
-                      <img
-                        :src="imageBaseUrl + event.photos[0].imageUrl"
-                        class="img-fluid"
-                        :alt="event.title" loading="lazy"
-                      />
+                      <img :src="imageBaseUrl + event.photos[0].imageUrl" class="img-fluid" :alt="event.title"
+                        loading="lazy" />
                     </div>
                     <div class="event-content">
                       <h5 class="event-year">Year {{ event.year }}</h5>
@@ -304,7 +187,7 @@
       </div>
     </div>
   </section>
-<section class="membership-section py-5 bg-light">
+  <section class="membership-section py-5 bg-light">
     <div class="">
       <div class="section-header text-center mb-5">
         <h2 class="section-title">
@@ -324,7 +207,7 @@
                 Download and Submit Required Documents
               </h3>
               <p class="membership-subtitle">
-                We are happy to serve you better! For membership and fellowship, 
+                We are happy to serve you better! For membership and fellowship,
                 you can download forms as per your choice:
               </p>
             </div>
@@ -396,7 +279,7 @@
                 </div>
               </div>
 
-           
+
             </div>
           </div>
         </div>
@@ -422,17 +305,19 @@
 
 <script>
 import contact_us from "../components/HomeContactUs.vue";
-
+import SwiperComponent from '../components/core/Slider/SliderComponent.vue'
+import { API_BASE_URL } from "@/utils/apis";
 export default {
   name: "HomePage",
   components: {
     contact_us,
+    SwiperComponent
   },
   data() {
     return {
       activeTab: "newest_event",
       allEventsData: [], // API se events ka data yahan store hoga
-      imageBaseUrl: "http://localhost:3000",
+      imageBaseUrl: `${API_BASE_URL}`,
     };
   },
   methods: {
@@ -441,7 +326,7 @@ export default {
     },
     async fetchEvents() {
       try {
-        const res = await fetch("http://localhost:3000/api/events");
+        const res = await fetch(`${API_BASE_URL}/api/events`);
         const data = await res.json();
         this.allEventsData = data;
       } catch (err) {
@@ -479,95 +364,9 @@ export default {
 /* Hero Section Styles */
 .hero-section {
   position: relative;
-  min-height: 100vh;
   overflow: hidden;
 }
 
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(13, 110, 253, 0.7),
-    rgba(13, 110, 253, 0.4)
-  );
-  z-index: -1;
-}
-
-.hero-content {
-  z-index: 1;
-  padding-top: 100px;
-}
-
-.hero-text {
-  color: white;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-.highlight {
-  color: #0d6efd;
-}
-
-.hero-divider {
-  width: 80px;
-  height: 4px;
-  background: #0d6efd;
-  margin: 1.5rem auto;
-  border-radius: 2px;
-}
-
-.hero-description {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-cta {
-  padding: 12px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.hero-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
 
 /* Section Header Styles */
 .section-header {
@@ -804,6 +603,7 @@ export default {
     margin-bottom: 2rem;
   }
 }
+
 /* Membership Section Styles */
 .membership-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -913,15 +713,15 @@ export default {
   .membership-header {
     padding: 2rem 1.5rem;
   }
-  
+
   .membership-title {
     font-size: 1.5rem;
   }
-  
+
   .membership-content {
     padding: 1.5rem;
   }
-  
+
   .document-card {
     margin-bottom: 1rem;
   }

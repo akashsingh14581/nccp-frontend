@@ -2195,7 +2195,6 @@ export default {
   display: flex;
   min-height: 100vh;
   background-color: #f8fafc;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   color: #334155;
 }
@@ -3167,6 +3166,7 @@ export default {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid #f1f5f9;
   transition: all 0.3s ease;
+  will-change: transform, box-shadow;
 }
 
 .query-card:hover {
@@ -3262,6 +3262,7 @@ export default {
   background: #f8fafc;
   position: relative;
   z-index: 1;
+  will-change: border-color, background;
 }
 
 .upload-area:hover {
@@ -3313,6 +3314,7 @@ export default {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   background: #f8fafc;
+  will-change: transform, box-shadow;
 }
 
 .gallery-item:hover {
@@ -3746,7 +3748,6 @@ export default {
   resize: vertical;
   transition: all 0.3s ease;
   background: white;
-  font-family: inherit;
 }
 
 .description-input:focus {
@@ -4368,7 +4369,6 @@ export default {
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: inherit;
 }
 
 .member-delete-action-btn:hover {
@@ -4503,7 +4503,6 @@ export default {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: inherit;
 }
 
 .member-deletion-confirm-btn:hover {
@@ -4529,7 +4528,6 @@ export default {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: inherit;
 }
 
 .member-deletion-cancel-btn:hover {

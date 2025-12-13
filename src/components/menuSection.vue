@@ -176,7 +176,7 @@
 
 
             <!-- Contact -->
-            <a class="getstarted">Contact Us</a>
+            <a @click="$emit('open-contact')"  class="getstarted">Contact Us</a>
           </ul>
 
           <i class="bi bi-list mobile-nav-toggle" @click="toggleMobileMenu"></i>
